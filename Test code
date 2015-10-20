@@ -1,0 +1,61 @@
+local myRectangle = display.newRect( 370, 1070, 150, 150 )
+myRectangle:setFillColor( 1,1,1 )
+
+local mybutton = display.newImage( "button1.png" ) -- right side
+mybutton.x = display.contentWidth -100
+mybutton.y = display.contentHeight -80
+
+local mybutton1 = display.newImage( "button2.png" ) --left side
+mybutton1.x = display.contentWidth -600
+mybutton1.y = display.contentHeight -80
+
+local myRectangle1 = display.newRect( myRectangle.x, myRectangle.y, 10, 30 )
+myRectangle:setFillColor( .5,.5,.5)
+
+local firebutton = display.newImage( "firebutton.png" ) 
+firebutton.x = display.contentWidth -350
+firebutton.y = display.contentHeight -80
+
+
+
+ 
+
+local function move( event )
+    myRectangle.x = myRectangle.x + 10
+    myRectangle1.x = myRectangle.x
+
+  
+
+    
+end
+
+local function move1( event )
+    myRectangle.x = myRectangle.x - 10
+    myRectangle1.x = myRectangle.x 
+
+end
+
+mybutton:addEventListener("tap", move)
+mybutton1:addEventListener("tap", move1)
+
+
+
+
+
+function firetrans(self, event)
+	self.y = self.y + 0.1
+-- add in an if statement 
+
+end	
+
+myRectangle1.enterframe = firetrans
+Runtime:addEventListener("enterframe",myRectangle1)
+
+local function fire( event )
+	myRectangle1.y = myRectangle.y
+    myRectangle1.x = myRectangle1.x
+    myRectangle1.y = firetrans 
+
+end
+
+firebutton:addEventListener("tap", fire)
